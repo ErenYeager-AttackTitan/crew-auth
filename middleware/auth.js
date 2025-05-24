@@ -17,7 +17,7 @@ function verifyToken(req, res, next) {
 
 // Only allow leaders
 function onlyLeader(req, res, next) {
-  if (req.user.role !== 'leader') {
+  if (req.user.role !== 'Founder') {
     return res.status(403).json({ message: 'Only leaders allowed' });
   }
   next();
