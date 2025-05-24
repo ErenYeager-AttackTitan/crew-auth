@@ -13,7 +13,7 @@ router.get('/secret-gang-room', verifyToken, onlyLeader, (req, res) => {
 
 router.post('/promote', verifyToken, onlyLeader, async (req, res) => {
   const { username } = req.body;
-  const user = await User.findOneAndUpdate({ username }, { role: 'leader' });
+  const user = await User.findOneAndUpdate({ username }, { role: 'Founder' });
   if (!user) return res.status(404).json({ message: 'User not found' });
   res.json({ message: `${username} promoted to leader!` });
 });
